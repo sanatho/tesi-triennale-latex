@@ -1,0 +1,177 @@
+\documentclass[a4paper,12pt,twoside,openright]{book}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+
+%------------------------------ colors
+\usepackage[usenames,dvipsnames,table]{xcolor} % use colors on table and more
+\definecolor{333}{RGB}{51, 51, 51} % define custom color
+%------------------------------ source code
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize\sffamily,
+  commentstyle=\itshape\color{gray},
+  captionpos=b,
+  frame=shadowbox,
+  language=HTML,
+  rulesepcolor=\color{333},
+  tabsize=2
+}
+%------------------------------ define Abstract environment, missing in the 'book' class
+\newenvironment{abstract}{\cleardoublepage \null \vfill \begin{center}\bfseries\abstractname \end{center}}{\vfill\null}
+%------------------------------ active url
+\usepackage{url}
+\renewcommand{\UrlFont}{\color{black}\small\ttfamily}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black]{hyperref} % active ref
+%------------------------------ macros
+\newcommand{\sectionname}{Section} % define Section ref
+\newcommand{\subsectionname}{Sub-section} % define Sub-section ref
+\renewcommand*\arraystretch{1.4} % tables padding
+
+
+\begin{document}
+\frontmatter
+\begin{titlepage}
+	%immagini di intestazione
+	\begin{flushleft}
+		\includegraphics[width=0.3\columnwidth]{images/logo_unipd.png}
+		\hspace{\fill}
+		\includegraphics[width=0.05\columnwidth]{images/logo_DEI.png}
+		\hspace{0.01 cm}
+		\begin{minipage}[b][1,8 cm][c]{0.3\columnwidth}
+			\textsf{{\color{Sepia}{DIPARTIMENTO\\DI INGEGNERIA\\DELL'INFORMAZIONE}}}
+		\end{minipage}
+	\end{flushleft}
+	
+	%titoli vari
+	\vfill
+	\begin{center}
+		\begin{large}
+			DEPARTMENT OF INFORMATION ENGINEERING
+			\\~\\
+			BACHELOR'S DEGREE IN COMPUTER ENGINEERING
+			\\~\\~\\
+			Fusing vision and inertial measurements for autonomous navigation in narrow channels
+			\vfill
+			Supervisor: 
+			\hfill
+			Candidate:
+			\\
+			Prof. Damiano Varagnolo
+			\hfill
+			Thomas Sanavia
+			\vfill
+			ACADEMIC YEAR: 2024/2025
+			\\
+			Graduation date: -- -- ----
+			\vfill
+		\end{large}
+	\end{center}
+	
+\end{titlepage}
+
+
+\cleardoublepage % make left page blank
+\thispagestyle{empty} %------------------------------ DEDICA
+
+\null
+\vspace{2cm}
+\begin{flushright}
+A ...
+\end{flushright}
+\vfill
+
+\begin{quote}
+  Quote
+
+  \textit{Author}
+\end{quote}
+\vfill
+\null
+
+
+\begingroup %------------------------------ CONTENTS
+  \makeatletter
+  \let\ps@plain\ps@empty
+  \makeatother
+  \tableofcontents
+\endgroup
+
+\begin{abstract} %------------------------------ ABSTRACT
+\markboth{}{} % remove header
+\thispagestyle{empty}
+This thesis addresses the design, development, and validation of an automatic system for detecting roll, pitch, and yaw of an autonomous boat. The main objective is to create a low-cost, low-power, and easily transportable solution capable of accurately determining the boat’s attitude. To achieve this, both computer vision and an onboard inertial sensor will be used. By fusing data from these two sources, a precise estimate of the boat’s attitude will be made available to the entire system. For the computer vision part, two cameras will be used to exploit stereo vision. The attitude estimation will be processed on a Raspberry Pi 5, chosen for its low cost. For this purpose, ArUco Tags—two-dimensional fiducial markers commonly used in robotics and augmented reality for pose estimation—will be employed. Regarding the inertial sensor, the onboard device will provide velocities and accelerations along the three axes. Finally, an extended Kalman filter, which will utilize both inertial and computer vision data, will be applied to reduce drift and improve the accuracy of roll, pitch, and yaw estimation.
+\end{abstract}
+
+
+
+\mainmatter\doublespace 
+
+\chapter*{Introduzione} %------------------------------ INTRODUCTION
+\addcontentsline{toc}{chapter}{Introduzione}
+\thispagestyle{empty}
+In recent years, the field of \textbf{autonomous systems} has played an increasingly central role in robotics. All this has also been made possible thanks to solutions such as \textbf{Robot Operating System 2 (ROS2)}, which is one of the platforms for the development of robotic applications. This has been achieved thanks to its \textit{modular architecture}, support for \textit{real-time communication}, and its \textit{open-source} nature, which has made it an excellent choice even for advanced robotic systems.  
+
+This thesis is part of the \textbf{Autodocking project}, focused on the ability of a boat to navigate and dock autonomously. Although the structure and the basic control systems were already in place, a \textbf{computer vision–based system} for autonomous navigation was missing. My contribution was related to the creation of a \textbf{ROS2 node}; more specifically, I dealt with the entire \textbf{pipeline} ranging from \textbf{image acquisition}, \textbf{attitude estimation}, and subsequent \textbf{sensor fusion} with the inertial sensor data. To achieve this, I needed a \textbf{ROS2 node} that handled the acquisition of images from the various cameras installed on the boat and their publication on a \textit{topic}, so that my algorithm could access them.
+
+% --- Pagina bianca con numero romano
+\cleardoublepage
+\null
+\thispagestyle{plain} % mantiene il numero di pagina
+\addtocounter{page}{1} % opzionale, LaTeX normalmente incrementa automaticamente
+\clearpage
+
+\mainmatter\doublespace 
+\chapter{Titolo di capitolo} %------------------------------ CHAPTER TITLE
+\thispagestyle{empty}
+
+\section{Titolo di sezione}
+Sed varius rhoncus libero a consequat. Cras facilisis magna eget tellus laoreet sit amet mattis nulla posuere. Nullam magna est, porta a feugiat quis, mollis vel urna. Nunc ante dolor, pretium eget laoreet in, tincidunt vitae ipsum. Nulla et diam risus. Ut auctor auctor vestibulum. Vestibulum vitae turpis sit amet lacus pulvinar dictum laoreet vitae enim. Aliquam erat volutpat. Aliquam ultricies posuere sem, ac mollis nunc interdum in. Vivamus tempor felis a tellus volutpat ut elementum lorem congue. Proin purus tortor, ultricies vitae viverra non, feugiat ac felis. Fusce condimentum dignissim volutpat. Proin quis augue ac tortor mollis congue at et magna. Nullam a velit est, nec ultrices justo (\seename\ \figurename~\ref{unipd-logo}).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=6cm]{images/unipd-light}
+  \caption{Image caption}\label{unipd-logo}
+\end{figure}
+
+\subsection{Sub-section title}
+\begin{wrapfigure}{r}{3cm}
+  \vspace{-20pt}
+  \begin{center}
+  \includegraphics[width=2cm]{images/unipd-bn}
+  \end{center}
+  \vspace{-10pt}
+\end{wrapfigure}
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas (\seename\ \lstlistingname~\ref{listing01}). Suspendisse arcu magna, faucibus ut tincidunt non, ultrices ut turpis. Nullam tristique vehicula massa, id commodo orci sollicitudin vel. Donec nibh ante, ultrices non facilisis sed, mattis id ligula. Sed sed orci sit amet nulla egestas gravida. Suspendisse laoreet, massa vel sagittis gravida, lectus ligula feugiat risus, a aliquam dolor eros ac orci. Nulla egestas tortor quis nunc scelerisque sed tincidunt massa scelerisque. Pellentesque vulputate pharetra lectus, vitae ultricies nisi luctus eu. Nam congue dui eu quam euismod vitae fermentum sem vehicula. Etiam ac leo id nisi placerat posuere. Curabitur mattis augue eget dolor tempus accumsan consequat diam imperdiet. Sed tristique orci id lacus vulputate rhoncus. Morbi tincidunt ante sed turpis luctus tincidunt et sit amet augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc viverra urna non libero sodales euismod et eleifend sapien. Donec aliquet risus non massa dignissim sollicitudin. Integer a ligula eros. Morbi et lacinia augue~\cite{bookname}.
+
+\begin{lstlisting}[caption={caption text},label=listing01]
+<p>
+Pellentesque ac tortor eget eros iaculis euismod
+vitae vitae augue.
+</p>
+<!-- comment -->
+\end{lstlisting}
+
+Inserimento bibliografico  \cite{9171875} \cite{4557629} \cite{4024975}
+
+ 
+
+\backmatter
+
+\begingroup %------------------------------ BIBLIOGRAPHY
+  \makeatletter
+  \let\ps@plain\ps@empty
+  \makeatother
+  \bibliography{template-thesis}
+  \addcontentsline{toc}{chapter}{Bibliografia}
+  \bibliographystyle{ieeetr} % sort in order of appearance
+\endgroup
+\end{document} 
