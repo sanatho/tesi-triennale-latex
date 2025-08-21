@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.20)  21 AUG 2025 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.20)  21 AUG 2025 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/ThomasPC/Desktop/template-thesis/template-thesis.tex
-(c:/Users/ThomasPC/Desktop/template-thesis/template-thesis.tex
+**c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex
+(c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\ThomasPC\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
@@ -319,7 +319,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count287
 \l__pdf_internal_box=\box58
-) (template-thesis.aux)
+) (template-thesis.aux (sections/capitolo_1.aux))
 \openout1 = `template-thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -427,58 +427,84 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ] [2
 
 ] [4]
+\openout2 = `sections/capitolo_1.aux'.
+
+ (sections/capitolo_1.tex
 Chapter 1.
-<images/unipd-light.png, id=84, 452.892pt x 455.7828pt>
-File: images/unipd-light.png Graphic file (type png)
-<use images/unipd-light.png>
-Package pdftex.def Info: images/unipd-light.png  used on input line 140.
-(pdftex.def)             Requested size: 169.63367pt x 170.71652pt.
-<images/unipd-bn.png, id=85, 192.72pt x 193.6836pt>
-File: images/unipd-bn.png Graphic file (type png)
-<use images/unipd-bn.png>
-Package pdftex.def Info: images/unipd-bn.png  used on input line 148.
-(pdftex.def)             Requested size: 56.9055pt x 57.18935pt.
 
-Underfull \vbox (badness 1210) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.153 P
-       ellentesque habitant morbi tristique senectus et netus et malesuada f... [1
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
+ []
+
+
+Underfull \vbox (badness 4859) has occurred while \output is active []
+
+ [5
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
-LaTeX Warning: Citation `bookname' on page 2 undefined on input line 153.
+ []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.154 
-       [2 <./images/unipd-light.png (PNG copy)> <./images/unipd-bn.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 155.
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+[6])
+Overfull \hbox (0.12686pt too wide) in paragraph at lines 12--130
+\T1/lmr/m/n/12 ers), \T1/lmr/bx/n/12 in-er-tial mea-sure-ments \T1/lmr/m/n/12 through the IMU, and an \T1/lmr/bx/n/12 Ex-tended Kalman
+ []
+
+
+Overfull \hbox (59.28688pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/12 1.1.  AUTONOMOUS SURFACE VEHICLES: CHALLENGES AND APPLICATIONS \T1/lmr/m/n/12 7
+ []
+
+[7]
+<images/unipd-light.png, id=96, 452.892pt x 455.7828pt>
+File: images/unipd-light.png Graphic file (type png)
+<use images/unipd-light.png>
+Package pdftex.def Info: images/unipd-light.png  used on input line 134.
+(pdftex.def)             Requested size: 169.63367pt x 170.71652pt.
+<images/unipd-bn.png, id=97, 192.72pt x 193.6836pt>
+File: images/unipd-bn.png Graphic file (type png)
+<use images/unipd-bn.png>
+Package pdftex.def Info: images/unipd-bn.png  used on input line 142.
+(pdftex.def)             Requested size: 56.9055pt x 57.18935pt.
+
+
+LaTeX Warning: Citation `bookname' on page 8 undefined on input line 147.
+
+[8
+
+
+ <./images/unipd-light.png (PNG copy)> <./images/unipd-bn.png>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 149.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 160.
-LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 160.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 154.
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 154.
  (C:\Users\ThomasPC\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <10> not available
-(Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 160.
- [3{C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.167 \backmatter
-                  [4
+(Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 154.
 
-] (template-thesis.bbl) [5
+Overfull \hbox (59.28688pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/12 1.1.  AUTONOMOUS SURFACE VEHICLES: CHALLENGES AND APPLICATIONS \T1/lmr/m/n/12 9
+ []
 
-] (template-thesis.aux)
+[9{C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [10
+
+] (template-thesis.bbl) [11
+
+] (template-thesis.aux (sections/capitolo_1.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -488,25 +514,24 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `template-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CDB3085C7A66B37A161F1028A3C62BE1;641.
+(rerunfilecheck)             Checksum: 22FEF807B466ED6D268E6AF6250A9DDF;809.
  )
-(\end occurred inside a group at level 2)
+(\end occurred inside a group at level 1)
 
-### semi simple group (level 2) entered at line 131 (\begingroup)
 ### semi simple group (level 1) entered at line 115 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13045 strings out of 474486
- 206216 string characters out of 5742339
- 1933542 words of memory out of 5000000
- 35108 multiletter control sequences out of 15000+600000
+ 13077 strings out of 474486
+ 207101 string characters out of 5742339
+ 1934542 words of memory out of 5000000
+ 35126 multiletter control sequences out of 15000+600000
  616000 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1401b,1828s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,1367b,1817s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso10.pfb>
-Output written on template-thesis.pdf (16 pages, 673541 bytes).
+Output written on template-thesis.pdf (18 pages, 684636 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

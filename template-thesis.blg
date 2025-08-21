@@ -1,6 +1,8 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: template-thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: sections/capitolo_1.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
@@ -10,7 +12,7 @@ Warning--can't use both volume and number fields in 4557629
 Warning--can't use both volume and number fields in 4024975
 You've used 3 entries,
             1876 wiz_defined-function locations,
-            497 strings with 4027 characters,
+            498 strings with 4050 characters,
 and the built_in function-call counts, 1100 in all, are:
 = -- 108
 > -- 30
