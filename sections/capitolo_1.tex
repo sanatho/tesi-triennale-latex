@@ -1,4 +1,4 @@
-\chapter{Introduzione} %------------------------------ CHAPTER TITLE
+\chapter{Introduction}
 \thispagestyle{empty}
 \section{Autonomous Surface Vehicles: challenges and applications}
 Unmanned Surface Vehicles (\textbf{USVs}) are particular surface vessels capable of navigating without the presence of a human crew to maneuver them. They can be \textit{remotely operated} through radio or satellite communication, or be completely \textit{autonomous} and controlled by a computer or artificial intelligence; in this case, they are referred to as \textbf{Autonomous Surface Vehicles (ASVs)}. ASVs aim to make journeys \textit{safer}, \textit{reduce costs}, \textit{increase operational continuity}, and carry out \textit{prolonged missions} in \textit{complex} and even \textit{risky} situations for humans.\\
@@ -10,4 +10,77 @@ The main challenges concern \textbf{sensors and algorithms}. The first challenge
 Despite the criticality of these challenges, ASVs are used in various \textbf{applications}. In the \textbf{industrial field}, they are employed for \textit{infrastructure inspection} or \textit{short-range logistical support}. In \textbf{defense and security}, they are used in \textit{special operations} such as \textit{explosive ordnance disposal}. In the \textbf{environmental field}, they are used for \textit{monitoring environmental parameters} and \textit{collecting meteorological data} over extended time horizons, thereby reducing risks for crews.\\
 
 Within this framework, the present thesis focuses on one main issue: obtaining an \textbf{accurate real-time estimation} of the boat’s attitude. To achieve this, \textbf{computer vision techniques} (stereo vision and ArUco markers), \textbf{inertial measurements} through the IMU, and an \textbf{Extended Kalman Filter} will be used to fuse the data, with the aim of \textit{improving the reliability of the estimation}.
-Vuoi che ti prepari anche una versione con colori (ad esempio blu per concetti tecnici e
+
+\section{Attitude Estimation: roll, pitch, yaw}
+
+To describe the \textbf{attitude} of a vessel, the orientation of the rigid body with respect to a reference system is used. This is done through the three \textbf{Euler angles}\cite{Euler_angles}: \textit{roll} (rotation on the longitudinal axis), \textit{pitch} (rotation on the transverse axis), and \textit{yaw} (rotation on the vertical axis). These three quantities are \textbf{crucial} as they influence \textbf{stabilization} and \textbf{trajectory control} and are fundamental in \textbf{precision maneuvers}.  
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=6cm]{images/euler_angles.png}
+  \caption{Three rotational degrees of freedom of a ASV}\label{unipd-logo}
+\end{figure}
+
+
+\textbf{Attitude estimation} can be obtained from different sources, each with its own advantages and disadvantages. \textbf{Inertial sensors (IMU)}\cite{IMU_Euler}, through gyroscopes and accelerometers, provide roll and pitch with a \textbf{high update frequency}. However, these estimates are affected by \textit{drift}, caused by the accumulation of errors over time. For yaw, a \textbf{magnetometer} or an \textbf{external observation} is required, as the IMU does not provide a direct measurement of this angle. A \textbf{visual sensor} allows estimating the attitude through \textit{known structures} (e.g., ArUco tags) or through the environment if it allows it (e.g., using the \textit{horizon line}). This latter method is less affected by the drift problem but is highly sensitive to \textbf{environmental conditions} and also has a \textbf{lower update frequency}.  
+
+In the \textbf{marine context}, a robust pipeline is represented by the IMU, which provides a \textbf{high-frequency prediction} and, periodically, through \textbf{computer vision}, a measurement relative to the ArUco marker to reduce error accumulation. Through an \textbf{EKF filter}\cite{EKS_IMU_cv}, the different contributions are integrated in order to obtain a \textbf{coherent estimate} even if the conditions are adverse or if one of the sources fails.  
+
+In summary, \textbf{attitude estimation} for an \textbf{ASV} requires a compromise between the \textbf{speed of the readings} and their \textbf{accuracy}. The \textbf{integration} between \textit{inertial} and \textit{visual} measurements provides a \textbf{reliable estimate} capable of supporting \textbf{autonomous navigation}. Subsequently, the different \textbf{implementation choices} to obtain the attitude estimation of the \textbf{Blue Boat} will be presented.  
+
+\section{Computer Vision for Localization and Attitude Estimation}
+
+Computer vision is an essential source for estimating the attitude of the ASV. 
+It provides \textbf{roll}, \textbf{pitch}, and \textbf{yaw} with respect to a known reference, 
+namely the \textit{ArUco marker}. In our case, it plays a \textit{complementary role} with respect to the IMU, 
+which provides an absolute measurement that is not obtained through temporal integration, 
+but is instead sensitive to visual conditions (\textit{reflections, backlighting, fog, etc.}).\\
+The goal of this chapter is to outline the principles and choices that allow for reliable 
+attitude estimation using a \textbf{stereo camera pair}, leveraging \textit{ArUco markers} 
+and a geometric calibration of the two cameras.\\
+
+The pipeline is structured into four main steps:
+\begin{itemize}
+    \item \textbf{Stereo camera calibration:} estimation of intrinsic parameters and distortions, 
+    followed by the calculation of rotation and translation between the two cameras.
+    \item \textbf{Marker detection:} ArUco markers enable highly reliable identification, 
+    provided they are properly scaled according to the distance and have a sufficient pixel resolution.
+    \item \textbf{Attitude estimation:} application of a pose estimation algorithm which, 
+    knowing the 2D corners and the 3D points of the pattern, can estimate the values of roll, pitch, and yaw.
+    \item \textbf{Measurement validation:} a decision filter determines whether to accept the measurement, 
+    discard it, or reduce its influence.
+\end{itemize}
+
+Triangulation, made more reliable by \textbf{epipolar rectification}, allows for the estimation of depth around the marker. 
+These depth cues are used as additional support to improve the attitude estimation.\\
+
+Finally, temporal and synchronization aspects also play a \textbf{crucial role}. 
+Synchronization is \textit{decisive} to avoid disparities and inconsistent triangulations. 
+The frame rate and the subsequent update time strongly influence the \textbf{accuracy} of the algorithm’s estimation, 
+since excessively low values reduce its quality.\\
+
+This approach, entirely based on stereo vision and ArUco markers, enables precise attitude estimation. 
+Its accuracy is determined by the quality of calibrations and the robustness of estimation algorithms, 
+but it reaches its maximum effectiveness when \textbf{integrated with IMU data}, 
+compensating for the weaknesses of each source.
+
+\section{Fiducial markers and ArUco tags}
+
+The \textbf{ArUco marker} is a square planar pattern with a high-contrast black border and an internal matrix encoding a \textit{unique identifier}. This structure allows for fast localization and recognition of the four corners, providing a stable 2D--3D correspondence for attitude estimation. The use of a single marker reduces environmental and economic requirements. However, relying on just one marker requires greater care in localization, calibration, and validation of the measurements.\\
+
+The recognition pipeline adopts a pair of calibrated cameras. After calibration of the individual cameras and subsequent stereo calibration (\textit{rotation, translation, and epipolar rectification}), the images are acquired and rectified, thus aligning the epipolar lines. The detection of the marker involves several steps:
+
+\begin{enumerate}
+    \item Adaptive thresholding
+    \item Contour extraction
+    \item Quadrilateral selection
+    \item ID decoding\\
+\end{enumerate}
+
+Knowing the marker size, the attitude is calculated through the \textbf{PnP algorithm (Perspective-n-Point)}, obtaining the rotation and translation of the reference camera frame. If both cameras observe the marker, the two estimates can be fused, or the one with higher quality can be selected.\\
+
+The use of a system based on \textbf{stereo vision} improves disparity estimation in the regions close to the marker and enables \textit{metric triangulation} of depth, enhancing stability compared to a monocular approach. This becomes particularly evident when the marker is very small (i.e., far away) or when it is not perpendicular to the viewing angle, as both conditions reduce perspective information.\\
+
+For each estimate, quality indicators are evaluated: reprojection error, effective presence of the marker (all four corners detected), and the angle between the camera and the marker, penalizing views that are too oblique. Furthermore, a comparison is made between the apparent size of the marker in pixels, in order to identify discrepancies due to triangulation or temporal misalignment. \\
+
+From a practical point of view, the use of a single ArUco marker offers a \textbf{simple and easily reproducible implementation path}: a single print on a rigid surface with a matte finish (to reduce reflections) is sufficient. Under these conditions, a single ArUco marker used in a well-calibrated stereo vision pipeline provides roll, pitch, and yaw measurements while maintaining a \textit{good trade-off between precision and computational demand}.

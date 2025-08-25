@@ -8,28 +8,28 @@ Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
 Database file #1: template-thesis.bib
 Warning--I didn't find a database entry for "bookname"
-Warning--can't use both volume and number fields in 4557629
-Warning--can't use both volume and number fields in 4024975
+Warning--empty journal in IMU_Euler
+Warning--empty year in IMU_Euler
 You've used 3 entries,
             1876 wiz_defined-function locations,
-            498 strings with 4050 characters,
-and the built_in function-call counts, 1100 in all, are:
-= -- 108
-> -- 30
+            502 strings with 4015 characters,
+and the built_in function-call counts, 738 in all, are:
+= -- 69
+> -- 29
 < -- 0
 + -- 11
 - -- 8
-* -- 80
-:= -- 144
+* -- 48
+:= -- 110
 add.period$ -- 3
 call.type$ -- 3
 change.case$ -- 3
 chr.to.int$ -- 0
 cite$ -- 5
-duplicate$ -- 59
-empty$ -- 108
+duplicate$ -- 47
+empty$ -- 64
 format.name$ -- 8
-if$ -- 276
+if$ -- 180
 int.to.chr$ -- 0
 int.to.str$ -- 3
 missing$ -- 3
@@ -39,16 +39,16 @@ pop$ -- 11
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 50
+skip$ -- 34
 stack$ -- 0
-substring$ -- 92
-swap$ -- 31
+substring$ -- 20
+swap$ -- 22
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 9
+while$ -- 5
 width$ -- 4
-write$ -- 33
+write$ -- 30
 (There were 3 warnings)

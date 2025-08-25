@@ -1,19 +1,17 @@
 \begin{thebibliography}{1}
 
-\bibitem{9171875}
-J.~J. {Checa} and S.~{Tomasin}, ``Location-privacy preserving technique for 5g
-  mmwave devices,'' {\em IEEE Communications Letters}, vol.~23, no.~2,
-  pp.~15--34, 2020.
+\bibitem{Euler_angles}
+E.~W. Weisstein, ``Euler angles,'' {\em https://mathworld. wolfram. com/},
+  2009.
 
-\bibitem{4557629}
-S.~{Tomasin}, M.~{Levorato}, and M.~{Zorzi}, ``Analysis of outage probability
-  for cooperative networks with harq,'' in {\em Proc. IEEE International
-  Symposium on Information Theory}, vol.~3, pp.~2716--2720, 2007.
+\bibitem{IMU_Euler}
+Q.~Zhou, Z.~Li, G.~Yu, H.~Li, and N.~Zhang, ``A novel adaptive kalman filter
+  for euler-angle-based mems imu/magnetometer attitude estimation,'' vol.~32,
+  no.~4, p.~045104.
 
-\bibitem{4024975}
-N.~{Benvenuto}, G.~{Carnevale}, and S.~{Tomasin}, ``Mc-cdma with sic: Power
-  control by discrete stochastic approximation and comparison with ofdma,'' in
-  {\em Proc. IEEE International Conference on Communications}, vol.~12,
-  pp.~5715--5720, 2006.
+\bibitem{EKS_IMU_cv}
+M.~B. Alatise and G.~P. Hancke, ``Pose estimation of a mobile robot based on
+  fusion of imu data and vision data using an extended kalman filter,'' {\em
+  Sensors}, vol.~17, no.~10, p.~2164, 2017.
 
 \end{thebibliography}
