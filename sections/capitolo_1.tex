@@ -84,3 +84,63 @@ The use of a system based on \textbf{stereo vision} improves disparity estimatio
 For each estimate, quality indicators are evaluated: reprojection error, effective presence of the marker (all four corners detected), and the angle between the camera and the marker, penalizing views that are too oblique. Furthermore, a comparison is made between the apparent size of the marker in pixels, in order to identify discrepancies due to triangulation or temporal misalignment. \\
 
 From a practical point of view, the use of a single ArUco marker offers a \textbf{simple and easily reproducible implementation path}: a single print on a rigid surface with a matte finish (to reduce reflections) is sufficient. Under these conditions, a single ArUco marker used in a well-calibrated stereo vision pipeline provides roll, pitch, and yaw measurements while maintaining a \textit{good trade-off between precision and computational demand}.
+\section{Sensor Fusion and Bayesian Approaches}
+
+Sensor fusion deals with solving the problem of combining \textbf{heterogeneous and noisy measurements} in order to obtain a state estimate that is more accurate than the one provided by individual sensors.  
+In our case, we merge sensors with \textbf{complementary properties}:  
+\begin{itemize}
+    \item \textbf{Stereo vision} provides \textit{absolute measurements} without drift but at a low frequency.  
+    \item \textbf{IMU} provides \textit{angular velocity} measurements at high frequency but suffers from drift.  
+\end{itemize}
+
+\subsection*{Bayesian Foundations}
+In the \textbf{Bayesian paradigm}, the state is described by a \textit{probability distribution} that evolves over time and is composed of two steps:  
+\begin{itemize}
+    \item \textbf{Prediction:} computes the next step based on the dynamic model and the noise statistics.  
+    \item \textbf{Update:} uses the available measurement through the observation function and the measurement noise statistics.  
+\end{itemize}
+
+This alternation achieves an \textbf{optimal trade-off} between what is computed and what is \textit{effectively measured}.  
+
+\subsection*{In our case, the requirements are:}
+\begin{itemize}
+    \item \textbf{State:} Euler angles (\textit{roll, pitch, yaw}).  
+    \item \textbf{Dynamics:} integration of angular velocities to predict the evolution of the angles using consecutive samples.  
+    \item \textbf{Observations:} an orientation measurement derived from vision and inertial measurements, which will be treated either as model input or as an observation depending on the architecture.  
+\end{itemize}
+
+It is necessary to guarantee a \textbf{numerical consistency} between prediction and update, managing, for example, the correct periodicity of measurements and possible discontinuities among angles.  
+
+\subsection*{Benefits of Fusion}
+\begin{itemize}
+    \item \textbf{Drift reduction:} vision-based observation removes the accumulation of error caused by inertial integration.  
+    \item \textbf{Temporal continuity of the IMU:} keeps the estimate stable since it has a high update frequency.  
+    \item \textbf{Robustness:} weighting measurements based on their \textit{uncertainty} allows discarding unreliable measurements from stereo vision (e.g., camera at a steep angle relative to the ArUco marker, marker too small, etc.) or from the IMU.  
+\end{itemize}
+
+\subsection*{Evaluation}
+The quality of the fusion evaluation is assessed based on:  
+\begin{itemize}
+    \item \textbf{Angular accuracy}  
+    \item \textbf{Temporal stability}  
+    \item \textbf{Behavior under varying visual quality}  
+\end{itemize}
+
+\subsection*{Summary}
+In summary, \textbf{sensor fusion with a Bayesian algorithm} allows combining stereo vision and IMU measurements to obtain the attitude estimate.  
+\begin{itemize}
+    \item \textbf{IMU:} provides a \textit{continuous and fast estimate},  
+    \item \textbf{Stereo vision:} provides an estimate that does not suffer from drift since it is anchored to fixed references.  
+\end{itemize}
+
+Weighting the measurements according to their uncertainty allows operation even when the \textbf{quality of observations is not uniform}.  
+
+\section{Kalman Filters as Bayesian Filters (Linear and Extended)}
+
+Kalman filters are part of the family of \textbf{Bayesian filters}; they recursively estimate the state of the system in a \textit{probabilistic} way and update it through a \textbf{dynamic model (prediction)} with new \textbf{observations (update)} using \textbf{Bayes’ theorem}. In linear cases with \textit{Gaussian noise of zero mean}, the \textbf{Kalman Filter (KF)} provides an \textbf{optimal solution} since it maintains the state described by mean and covariance, producing a \textbf{Kalman gain} that balances the model and the measurements. In \textit{nonlinear systems}, typical in robotics and computer vision, the \textbf{Extended Kalman Filter (EKF)} is used, which applies a \textbf{local linearization (Jacobian matrices)} of the models to preserve the prediction structure.  
+
+In our case, to estimate the attitude, the minimum state includes the \textbf{Euler angles (roll, pitch, yaw)} and the \textbf{angular velocities}. The \textbf{prediction} integrates angular velocities over the sampling step. The \textbf{update} incorporates an \textit{orientation observation} coming from computer vision, with a covariance built from the \textit{quality indicators} of the stereo vision pipeline (reprojection error, number and quality of corners, etc.). In this case, the filter avoids \textbf{drift} caused by the inertial system if the computer vision part is stable.  
+
+At the \textbf{operational level}, the \textbf{linear KF}, through known \textbf{transition and observation matrices}, calculates prediction and update. If the state is nonlinear, the \textbf{EKF} is used, which, through the calculation of \textbf{Jacobian matrices}, replaces constant matrices within the same recursive scheme. The success of the fusion depends on the \textbf{consistency of the measurements}, which in turn depends on \textbf{temporal synchronization} between computer vision and IMU measurement, as well as \textbf{good performance conditions} that allow everything to run \textit{in real time}, etc.  
+
+In summary, the \textbf{Kalman Filter} and its \textbf{extended version}, through a \textbf{Bayesian approach}, perform \textbf{sensor fusion} in a \textbf{computationally efficient} way: the \textbf{prediction} exploits the \textbf{dynamic model} and the \textbf{IMU angular velocities} to ensure \textbf{continuity and responsiveness} in any situation, while the \textbf{update} also integrates \textbf{computer vision}, thus providing an \textbf{accurate and temporally stable attitude estimate}.  

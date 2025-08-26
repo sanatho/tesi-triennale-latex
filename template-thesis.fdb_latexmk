@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex template-thesis"] 1756155409.62865 "template-thesis.aux" "template-thesis.bbl" "template-thesis" 1756155411.45162 0
+["bibtex template-thesis"] 1756209616.2148 "template-thesis.aux" "template-thesis.bbl" "template-thesis" 1756209618.12567 0
   "./template-thesis.bib" 1755853116 872 2cd44ce39e6c048e860246930da84d5e ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "sections/capitolo_1.aux" 1756155410 1779 18169638d196ff2fd6d6c77826a8de9d "pdflatex"
-  "template-thesis.aux" 1756155410 1175 21438c66b13efe67dd40c22b2277d77b "pdflatex"
+  "sections/capitolo_1.aux" 1756209617 2076 5ebb572a3891aad5db65d3625f10128a "pdflatex"
+  "template-thesis.aux" 1756209617 1175 37bbd198da22b773f92c9aa5b93b90ce "pdflatex"
   (generated)
   "template-thesis.bbl"
   "template-thesis.blg"
   (rewritten before read)
-["pdflatex"] 1756155409.86028 "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" "template-thesis.pdf" "template-thesis" 1756155411.4522 0
+["pdflatex"] 1756209616.54547 "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" "template-thesis.pdf" "template-thesis" 1756209618.12633 0
   "C:/Users/ThomasPC/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1755768055 81888 770f3d4559840b9e9d8f989d2d293e5e ""
   "C:/Users/ThomasPC/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1755701851 24226462 33736fb5fa67ddca69c2460f2575d564 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -118,19 +118,19 @@
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" 1755853158 7709 3a1bd262561e1b901090c265337e2ec3 ""
+  "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" 1756209522 7709 3a1bd262561e1b901090c265337e2ec3 ""
   "images/euler_angles.png" 1755853581 21498 21e63a9554a2dc6840076e8e020778e7 ""
   "images/logo_DEI.png" 1755529823 2670 05b3e8f9ed61a48c3689b41f4ca311bc ""
   "images/logo_unipd.png" 1755529823 158053 a5fd8ebce3a43d07ceb7d2f55476e1cd ""
   "images/unipd-bn.png" 1755529823 143818 b7f491b76a537c05ae4d3b99b1ed7684 ""
   "images/unipd-light.png" 1755529823 208269 7efcbb7e78648f78435ca97437ba90b7 ""
-  "sections/capitolo_1.aux" 1756155410 1779 18169638d196ff2fd6d6c77826a8de9d "pdflatex"
-  "sections/capitolo_1.tex" 1756155405 11262 1633e5d6b017b70fc4ed19ca01bc19eb ""
-  "template-thesis.aux" 1756155410 1175 21438c66b13efe67dd40c22b2277d77b "pdflatex"
-  "template-thesis.bbl" 1756155409 590 ff207dd1b326366577a742fe0c13cd3b "bibtex template-thesis"
-  "template-thesis.out" 1756155410 1633 5f541bcf50d1d190cdb1d452395a3870 "pdflatex"
-  "template-thesis.tex" 1755853158 7709 3a1bd262561e1b901090c265337e2ec3 ""
-  "template-thesis.toc" 1756155410 715 ad545cd5aae1d07fef19ea7b6f94e542 "pdflatex"
+  "sections/capitolo_1.aux" 1756209617 2076 5ebb572a3891aad5db65d3625f10128a "pdflatex"
+  "sections/capitolo_1.tex" 1756209613 17136 750949f5d7614ad9f1f274228c969455 ""
+  "template-thesis.aux" 1756209617 1175 37bbd198da22b773f92c9aa5b93b90ce "pdflatex"
+  "template-thesis.bbl" 1756209616 590 ff207dd1b326366577a742fe0c13cd3b "bibtex template-thesis"
+  "template-thesis.out" 1756209617 2246 aa068c5f62a779dba3c9380be28946fd "pdflatex"
+  "template-thesis.tex" 1756209522 7709 3a1bd262561e1b901090c265337e2ec3 ""
+  "template-thesis.toc" 1756209617 930 4bee2011760b54da7f917c4dd9abbe25 "pdflatex"
   (generated)
   "sections/capitolo_1.aux"
   "template-thesis.aux"

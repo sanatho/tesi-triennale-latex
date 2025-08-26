@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.20)  25 AUG 2025 22:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.20)  26 AUG 2025 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -369,12 +369,12 @@ Package hyperref Info: Link coloring ON on input line 39.
 \@outlinefile=\write3
 \openout3 = `template-thesis.out'.
 
-<images/logo_unipd.png, id=35, 205.2468pt x 95.3964pt>
+<images/logo_unipd.png, id=43, 205.2468pt x 95.3964pt>
 File: images/logo_unipd.png Graphic file (type png)
 <use images/logo_unipd.png>
 Package pdftex.def Info: images/logo_unipd.png  used on input line 44.
 (pdftex.def)             Requested size: 117.00119pt x 54.38086pt.
-<images/logo_DEI.png, id=36, 217.81375pt x 671.50874pt>
+<images/logo_DEI.png, id=44, 217.81375pt x 671.50874pt>
 File: images/logo_DEI.png Graphic file (type png)
 <use images/logo_DEI.png>
 Package pdftex.def Info: images/logo_DEI.png  used on input line 46.
@@ -464,7 +464,7 @@ Overfull \hbox (0.12686pt too wide) in paragraph at lines 12--13
 \T1/lmr/m/n/12 ers), \T1/lmr/bx/n/12 in-er-tial mea-sure-ments \T1/lmr/m/n/12 through the IMU, and an \T1/lmr/bx/n/12 Ex-tended Kalman
  []
 
-<images/euler_angles.png, id=103, 955.57pt x 537.00626pt>
+<images/euler_angles.png, id=113, 955.57pt x 537.00626pt>
 File: images/euler_angles.png Graphic file (type png)
 <use images/euler_angles.png>
 Package pdftex.def Info: images/euler_angles.png  used on input line 20.
@@ -525,22 +525,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
-) [10]
-<images/unipd-light.png, id=140, 452.892pt x 455.7828pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Overfull \hbox (0.11542pt too wide) in paragraph at lines 100--101
+[]\T1/lmr/bx/n/12 Update: \T1/lmr/m/n/12 uses the avail-able mea-sure-ment through the ob-ser-va-tion func-
+ []
+
+[11] [12]
+Overfull \hbox (45.48293pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/12 1.6.  KALMAN FILTERS AS BAYESIAN FILTERS (LINEAR AND EXTENDED) \T1/lmr/m/n/12 13
+ []
+
+[13]) [14]
+<images/unipd-light.png, id=172, 452.892pt x 455.7828pt>
 File: images/unipd-light.png Graphic file (type png)
 <use images/unipd-light.png>
 Package pdftex.def Info: images/unipd-light.png  used on input line 134.
 (pdftex.def)             Requested size: 169.63367pt x 170.71652pt.
-<images/unipd-bn.png, id=141, 192.72pt x 193.6836pt>
+<images/unipd-bn.png, id=173, 192.72pt x 193.6836pt>
 File: images/unipd-bn.png Graphic file (type png)
 <use images/unipd-bn.png>
 Package pdftex.def Info: images/unipd-bn.png  used on input line 142.
 (pdftex.def)             Requested size: 56.9055pt x 57.18935pt.
 
 
-LaTeX Warning: Citation `bookname' on page 11 undefined on input line 147.
+LaTeX Warning: Citation `bookname' on page 15 undefined on input line 147.
 
-[11
+
+Overfull \hbox (45.48293pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/12 1.6.  KALMAN FILTERS AS BAYESIAN FILTERS (LINEAR AND EXTENDED) \T1/lmr/m/n/12 15
+ []
+
+[15
 
 
  <./images/unipd-light.png (PNG copy)> <./images/unipd-bn.png>]
@@ -553,7 +571,7 @@ File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <10> not available
 (Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 154.
- [12] (template-thesis.bbl) [13
+ [16] (template-thesis.bbl) [17
 
 
 ] (template-thesis.aux (sections/capitolo_1.aux))
@@ -569,24 +587,24 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `template-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5F541BCF50D1D190CDB1D452395A3870;1633.
+(rerunfilecheck)             Checksum: AA068C5F62A779DBA3C9380BE28946FD;2246.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 115 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13136 strings out of 474486
- 208486 string characters out of 5742339
+ 13149 strings out of 474486
+ 208612 string characters out of 5742339
  1934542 words of memory out of 5000000
- 35170 multiletter control sequences out of 15000+600000
+ 35172 multiletter control sequences out of 15000+600000
  616375 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1367b,1819s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,1367b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso10.pfb>
-Output written on template-thesis.pdf (21 pages, 711650 bytes).
+Output written on template-thesis.pdf (25 pages, 725364 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
