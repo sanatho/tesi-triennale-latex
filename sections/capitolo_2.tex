@@ -1,0 +1,35 @@
+\chapter{Attitude Estimation with Computer Vision}
+\thispagestyle{empty}
+\section{Vision Hardware and Experimental Setup}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Component} & \textbf{Model/Version} & \textbf{Role} & \textbf{Cost} \\
+        \hline
+        Raspberry Pi 5 & 8GB RAM & Frame acquisition and attitude computation & 85€ \\
+        \hline
+        Right Pi Camera & V3 & Capture right frame & 27€ \\
+        \hline
+        Left Pi Camera & V3 & Capture left frame & 27€ \\
+        \hline
+        Heatsink & Active & CPU cooling & 11€ \\
+        \hline
+        SanDisk Extreme & 64GB & OS storage & 15€ \\
+        \hline
+        \textbf{Total} & & & \textbf{165€} \\
+        \hline
+    \end{tabular}
+    \caption{Components used for attitude estimation}
+    \label{tab:example}
+\end{table}
+
+The computer vision part consists of a pair of rigidly mounted and calibrated cameras. The baseline is 12 cm, also measured during calibration. The cameras operate at a resolution of 1280$\times$720 px with a frame rate of 30 fps, providing an excellent compromise between visual quality and required resources.
+
+The calibration procedure is performed live by framing the calibration checkerboard. Calibrations are carried out for each camera (focal length, principal point, and distortion) and subsequently for the stereo pair (rotation and translation). At the end of the calibration, the files are saved and later loaded by the attitude estimation program.
+
+The visual reference for estimation is a single \textbf{ArUco marker} (in our case, a 6$\times$6 dictionary) with a known size. The marker is printed on a rigid and opaque support to reduce potential problems caused by reflections. The marker size must be such that it remains visible even at a distance, since the acquisition resolution is limited.
+
+Each cycle for the estimation calculation begins with the rectification of the cameras using the previously acquired calibration files. Subsequently, if the marker is detected, the algorithm proceeds to the next step. If present, the four vertices are triangulated to reconstruct the 3D coordinates. The reconstructed points are compared with the theoretical model of the marker, thus allowing the estimation of the \textbf{complete pose} (rotation and translation) using the \textit{estimateAffine3D} method. The rotation is converted to quaternions to avoid 180° jumps in the measurements. Finally, the video stream is displayed with the real-time attitude estimation, showing roll, pitch, and yaw on the screen.
+
+The measurement quality is ensured by checking, in each frame, that all marker corners are visible for correct identification. In this case, the combination of stereo vision, ArUco marker, and pose estimation using the \textit{estimateAffine3D} method provides stable and reliable attitude estimates.

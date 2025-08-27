@@ -3,6 +3,8 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: template-thesis.aux
 Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: sections/capitolo_1.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: sections/capitolo_2.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
@@ -12,7 +14,7 @@ Warning--empty journal in IMU_Euler
 Warning--empty year in IMU_Euler
 You've used 3 entries,
             1876 wiz_defined-function locations,
-            502 strings with 4015 characters,
+            503 strings with 4038 characters,
 and the built_in function-call counts, 738 in all, are:
 = -- 69
 > -- 29
