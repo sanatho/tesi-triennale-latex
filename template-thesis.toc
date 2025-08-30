@@ -3,11 +3,15 @@
 \contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Autonomous Surface Vehicles: challenges and applications}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Attitude Estimation: roll, pitch, yaw}{5}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Computer Vision for Localization and Attitude Estimation}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Computer Vision and Attitude Estimation}{7}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Fiducial markers and ArUco tags}{8}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Sensor Fusion and Bayesian Approaches}{10}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Kalman Filters as Bayesian Filters (Linear and Extended)}{13}{section.1.6}%
+\contentsline {section}{\numberline {1.6}Kalman Filters as Bayesian Filters}{13}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Attitude Estimation with Computer Vision}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Vision Hardware and Experimental Setup}{15}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Sub-section title}{18}{subsection.2.1.1}%
-\contentsline {chapter}{Bibliografia}{21}{chapter*.8}%
+\contentsline {section}{\numberline {2.2}Stereo Camera Calibration}{17}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Detection of ArUco markers}{18}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Pose Estimation Algorithms}{19}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Limitations and Critical Issues of the Visual Method}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Sub-section title}{23}{subsection.2.5.1}%
+\contentsline {chapter}{Bibliografia}{25}{chapter*.8}%

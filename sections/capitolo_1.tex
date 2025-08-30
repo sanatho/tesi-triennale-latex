@@ -28,7 +28,7 @@ In the \textbf{marine context}, a robust pipeline is represented by the IMU, whi
 
 In summary, \textbf{attitude estimation} for an \textbf{ASV} requires a compromise between the \textbf{speed of the readings} and their \textbf{accuracy}. The \textbf{integration} between \textit{inertial} and \textit{visual} measurements provides a \textbf{reliable estimate} capable of supporting \textbf{autonomous navigation}. Subsequently, the different \textbf{implementation choices} to obtain the attitude estimation of the \textbf{Blue Boat} will be presented.  
 
-\section{Computer Vision for Localization and Attitude Estimation}
+\section[Computer Vision and Attitude Estimation]{Computer Vision for Localization and Attitude Estimation}
 
 Computer vision is an essential source for estimating the attitude of the ASV. 
 It provides \textbf{roll}, \textbf{pitch}, and \textbf{yaw} with respect to a known reference, 
@@ -135,7 +135,7 @@ In summary, \textbf{sensor fusion with a Bayesian algorithm} allows combining st
 
 Weighting the measurements according to their uncertainty allows operation even when the \textbf{quality of observations is not uniform}.  
 
-\section{Kalman Filters as Bayesian Filters (Linear and Extended)}
+\section[Kalman Filters as Bayesian Filters]{Kalman Filters as Bayesian Filters (Linear and Extended)}
 
 Kalman filters are part of the family of \textbf{Bayesian filters}; they recursively estimate the state of the system in a \textit{probabilistic} way and update it through a \textbf{dynamic model (prediction)} with new \textbf{observations (update)} using \textbf{Bayes’ theorem}. In linear cases with \textit{Gaussian noise of zero mean}, the \textbf{Kalman Filter (KF)} provides an \textbf{optimal solution} since it maintains the state described by mean and covariance, producing a \textbf{Kalman gain} that balances the model and the measurements. In \textit{nonlinear systems}, typical in robotics and computer vision, the \textbf{Extended Kalman Filter (EKF)} is used, which applies a \textbf{local linearization (Jacobian matrices)} of the models to preserve the prediction structure.  
 
