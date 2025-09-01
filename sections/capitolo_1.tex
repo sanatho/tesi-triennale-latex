@@ -26,6 +26,21 @@ To describe the \textbf{attitude} of a vessel, the orientation of the rigid body
 \\In the marine context, a robust pipeline is represented by the IMU, which provides a high-frequency prediction and, periodically, through computer vision, a measurement relative to the ArUco marker to reduce error accumulation. Through an EKF filter\cite{EKS_IMU_cv}, the different contributions are integrated in order to obtain a coherent estimate even if the conditions are adverse or if one of the sources fails.  
 \\In summary, attitude estimation for an \textbf{ASV} requires a compromise between the speed of the readings and their accuracy. The integration between inertial and visual measurements provides a reliable estimate capable of supporting autonomous navigation. Subsequently, the different implementation choices to obtain the attitude estimation of the \textbf{Blue Boat} will be presented.
 
+\section{Translational Motions of the Boat Hull}
+
+\textbf{Heave}, \textbf{Sway}, and \textbf{Surge} are the three translational motions related to the hull of the boat. They describe the vertical, lateral, and longitudinal displacements, corresponding respectively to heave, sway, and surge in nautical terminology. 
+
+In a realistic scenario, they interact with roll, pitch, and yaw, affecting stability, control, and the quality of on-board attitude estimates. The precise definition of reference frames and axis conventions is necessary to correctly interpret the measurements, allowing the distinction between slow fluctuations, due to currents and average conditions, and rapid ones caused by waves and maneuvers. 
+
+In this project, these motions are mentioned only for terminological completeness, but they will neither be estimated nor computed. The objective is solely the calculation of angular attitude through visual and inertial observations.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=6cm]{images/Translations.png}
+  \caption{The three translations to which a floating body is subjected: surge (longitudinal), sway (lateral), and heave (vertical)}\label{unipd-logo}
+\end{figure}
+
+
 \section[Computer Vision and Attitude Estimation]{Computer Vision for Localization and Attitude Estimation}
 
 Computer vision is an essential source for estimating the attitude of the ASV. 

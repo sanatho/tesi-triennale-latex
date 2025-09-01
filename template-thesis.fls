@@ -154,6 +154,9 @@ INPUT sections\capitolo_1.aux
 INPUT .\sections\capitolo_2.aux
 INPUT .\sections\capitolo_2.aux
 INPUT sections\capitolo_2.aux
+INPUT .\sections\capitolo_3.aux
+INPUT .\sections\capitolo_3.aux
+INPUT sections\capitolo_3.aux
 OUTPUT template-thesis.aux
 INPUT C:\Users\ThomasPC\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\ThomasPC\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -238,6 +241,13 @@ INPUT .\images\euler_angles.png
 INPUT .\images\euler_angles.png
 INPUT .\images\euler_angles.png
 INPUT .\images\euler_angles.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
+INPUT .\images\Translations.png
 INPUT .\sections\capitolo_2.tex
 INPUT .\sections\capitolo_2.tex
 OUTPUT sections\capitolo_2.aux
@@ -271,6 +281,12 @@ INPUT .\images\roll_pitch_yaw.png
 INPUT .\images\roll_pitch_yaw.png
 INPUT .\images\roll_pitch_yaw.png
 INPUT .\images\roll_pitch_yaw.png
+INPUT .\sections\capitolo_3.tex
+INPUT .\sections\capitolo_3.tex
+OUTPUT sections\capitolo_3.aux
+INPUT .\sections\capitolo_3.tex
+INPUT .\sections\capitolo_3.tex
+INPUT sections\capitolo_3.tex
 INPUT .\images\unipd-light.png
 INPUT .\images\unipd-light.png
 INPUT .\images\unipd-light.png
@@ -302,6 +318,9 @@ INPUT sections\capitolo_1.aux
 INPUT .\sections\capitolo_2.aux
 INPUT .\sections\capitolo_2.aux
 INPUT sections\capitolo_2.aux
+INPUT .\sections\capitolo_3.aux
+INPUT .\sections\capitolo_3.aux
+INPUT sections\capitolo_3.aux
 INPUT .\template-thesis.out
 INPUT .\template-thesis.out
 INPUT C:\Users\ThomasPC\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
