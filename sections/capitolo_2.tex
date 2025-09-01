@@ -35,6 +35,13 @@ Each cycle for the estimation calculation begins with the rectification of the c
 The measurement quality is ensured by checking, in each frame, that all marker corners are visible for correct identification. In this case, the combination of stereo vision, ArUco marker, and pose estimation using the \textit{estimateAffine3D} method provides stable and reliable attitude estimates.
 
 \section{Stereo Camera Calibration}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=6cm]{images/calib.png}
+  \caption{Checkerboard pattern with detected feature points during camera calibration.}
+\end{figure}
+
 The calibration of the \textbf{stereo cameras} was implemented through an algorithm that performs a \textit{live acquisition} of a checkerboard of known size, used as a reference. The two cameras are rigidly mounted on a \textbf{bracket} to avoid movements and acquire the images of the calibration pattern. For each acquired frame, the inner corners of the checkerboard are detected in both frames, subsequently the coordinates are made more accurate through \textbf{sub-pixel precision}. This procedure is repeated for each acquisition frame (in our case 50 frames), in order to collect a sufficiently high number of samples to make our calibration more \textit{stable}.
 
 Once the acquisition of the frames is completed, the calibration of the \textbf{individual cameras} is performed. For each camera, the fundamental optical parameters are calculated, represented by: focal length, principal point and lens distortion. These parameters are essential to correct the radial and tangential distortions created by the optics, thus ensuring a faithful representation of \textbf{reality}.
@@ -46,16 +53,13 @@ Finally, the matrices necessary to realign the images and ensure the subsequent 
 \section{Detection of ArUco markers}
 
 Detection of ArUco markers is fundamental for our \textbf{computer vision pipeline}, as it represents a reliable visual reference to be used in the subsequent phases of attitude estimation. ArUco markers are black squares containing a unique binary pattern, \textit{easily distinguishable} even under difficult lighting conditions. They are designed to minimize ambiguities that may occur between different markers, ensuring stable and fast recognition.
-
-Each frame acquired by the cameras is processed by the function\\ \texttt{detectMarkers}, which is responsible for detecting the markers present within the frames. The algorithm uses a 6x6 marker dictionary. Once detected, both the coordinates of the vertices and the marker ID are returned; all this information will be used in the subsequent parts of the algorithm.
-
-To improve the accuracy of the algorithm, the OpenCV library provides the \texttt{DetectorParameters} structure, which allows adjusting some detection parameters. In our case, we exclusively use \texttt{CORNER\_REFINE\_SUBPIX}, which allows achieving \textbf{sub-pixel precision} in the detection of the vertices. This is particularly useful when the marker is observed at long distances.
-
-An important aspect concerns candidate markers that are subsequently discarded. During frame analysis, there may be regions that resemble the searched marker but do not contain a valid code. These are discarded but can still be visualized and analyzed through the function \texttt{refineDetectedMarkers}, which is especially useful when aiming to develop a particularly stable and robust system.
-
-In conclusion, the detection process provides a \textbf{fast and reliable response} in identifying the markers present in the scene, returning the necessary information such as their ID and vertex positions. These data, once validated, are the essential starting point for the subsequent phases of triangulation and attitude estimation, thus ensuring \textit{consistency and reliability} throughout the process.
+\\Each frame acquired by the cameras is processed by the function\\ \texttt{detectMarkers}, which is responsible for detecting the markers present within the frames. The algorithm uses a 6x6 marker dictionary. Once detected, both the coordinates of the vertices and the marker ID are returned; all this information will be used in the subsequent parts of the algorithm.
+\\To improve the accuracy of the algorithm, the OpenCV library provides the \texttt{DetectorParameters} structure, which allows adjusting some detection parameters. In our case, we exclusively use \texttt{CORNER\_REFINE\_SUBPIX}, which allows achieving \textbf{sub-pixel precision} in the detection of the vertices. This is particularly useful when the marker is observed at long distances.
+\\An important aspect concerns candidate markers that are subsequently discarded. During frame analysis, there may be regions that resemble the searched marker but do not contain a valid code. These are discarded but can still be visualized and analyzed through the function \texttt{refineDetectedMarkers}, which is especially useful when aiming to develop a particularly stable and robust system.
+\\In conclusion, the detection process provides a \textbf{fast and reliable response} in identifying the markers present in the scene, returning the necessary information such as their ID and vertex positions. These data, once validated, are the essential starting point for the subsequent phases of triangulation and attitude estimation, thus ensuring \textit{consistency and reliability} throughout the process.
 
 \section{Pose Estimation Algorithms}
+
 The estimation of the boat’s attitude represents the \textbf{most important phase} of the entire pipeline, as it precisely determines the position of the boat with respect to the marker in three-dimensional space, in reference to the stereo camera system.  
 
 The process begins with the detection of the marker in the two rectified frames. In both frames, the markers are identified and subsequently the vertices corresponding to the corners of the square are extracted. These points, once extracted, are used to perform triangulation through the \textit{triangulatePoints} function, which reconstructs the 3D coordinates of the vertices in a common space. The result is a set of 3D points in space that describe the geometry of the marker.
@@ -68,6 +72,12 @@ The rotation matrix is then converted into quaternions using the \textbf{SciPy} 
 Finally, to guarantee the \textbf{temporal continuity} of the estimation and avoid sign changes, a consistency check between the current pose and the pose of the previous frame has been implemented.  
 
 The implemented algorithm, as described, makes it possible to obtain a \textbf{robust and fast estimation} with respect to a marker, thus providing a basis for the kinematic models of the system.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=6cm]{images/roll_pitch_yaw.png}
+  \caption{Detection of an ArUco marker with estimated roll, pitch, and yaw values displayed.}
+\end{figure}
 
 \section[Limitations and Critical Issues]{Limitations and Critical Issues of the Visual Method}
 

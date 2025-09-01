@@ -6,12 +6,12 @@
 \contentsline {section}{\numberline {1.3}Computer Vision and Attitude Estimation}{7}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Fiducial markers and ArUco tags}{8}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Sensor Fusion and Bayesian Approaches}{10}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Kalman Filters as Bayesian Filters}{12}{section.1.6}%
+\contentsline {section}{\numberline {1.6}Kalman Filters as Bayesian Filters}{11}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Attitude Estimation with CV}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Vision Hardware and Experimental Setup}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Stereo Camera Calibration}{17}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Detection of ArUco markers}{18}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Pose Estimation Algorithms}{19}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Limitations and Critical Issues}{20}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Sub-section title}{23}{subsection.2.5.1}%
-\contentsline {chapter}{Bibliografia}{25}{chapter*.7}%
+\contentsline {section}{\numberline {2.4}Pose Estimation Algorithms}{20}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Limitations and Critical Issues}{21}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Sub-section title}{24}{subsection.2.5.1}%
+\contentsline {chapter}{Bibliografia}{27}{chapter*.3}%

@@ -55,33 +55,21 @@ compensating for the weaknesses of each source.
 \section{Fiducial markers and ArUco tags}
 
 The ArUco marker is a square planar pattern with a high-contrast black border and an internal matrix encoding a unique identifier. This structure allows for fast localization and recognition of the four corners, providing a stable 2D--3D correspondence for attitude estimation. The use of a single marker reduces environmental and economic requirements. However, relying on just one marker requires greater care in localization, calibration, and validation of the measurements.
-
-The recognition pipeline adopts a pair of calibrated cameras. After calibration of the individual cameras and subsequent stereo calibration (\textit{rotation}, \textit{translation}, and \textit{epipolar rectification}), the images are acquired and rectified, thus aligning the epipolar lines. The detection of the marker involves several steps: \textbf{adaptive thresholding}, contour extraction, quadrilateral selection, and ID decoding.
+\\The recognition pipeline adopts a pair of calibrated cameras. After calibration of the individual cameras and subsequent stereo calibration (\textit{rotation}, \textit{translation}, and \textit{epipolar rectification}), the images are acquired and rectified, thus aligning the epipolar lines. The detection of the marker involves several steps: \textbf{adaptive thresholding}, contour extraction, quadrilateral selection, and ID decoding.
 \\Knowing the marker size, the attitude is calculated through the \textbf{estimateAffine3D method}, obtaining the rotation and translation of the reference camera frame. If both cameras observe the marker, the two estimates can be fused, or the one with higher quality can be selected.
 \\The use of a system based on \textbf{stereo vision} improves disparity estimation in the regions close to the marker and enables metric triangulation of depth, enhancing stability compared to a monocular approach. This becomes particularly evident when the marker is very small (i.e., far away) or when it is not perpendicular to the viewing angle, as both conditions reduce perspective information.
 \\For each estimate, quality indicators are evaluated: reprojection error, effective presence of the marker (all four corners detected), and the angle between the camera and the marker, penalizing views that are too oblique. Furthermore, a comparison is made between the apparent size of the marker in pixels, in order to identify discrepancies due to triangulation or temporal misalignment.
-\\From a practical point of view, the use of a single ArUco marker offers a simple and easily reproducible implementation path: a single print on a rigid surface with a matte finish (to reduce reflections) is sufficient. Under these conditions, a single ArUco marker used in a well-calibrated stereo vision pipeline provides roll, pitch, and yaw measurements while maintaining a good trade-off between precision and computational demand.
+From a practical point of view, the use of a single ArUco marker\cite{aruco_pose} offers a simple and easily reproducible implementation path: a single print on a rigid surface with a matte finish (to reduce reflections) is sufficient. Under these conditions, a single ArUco marker used in a well-calibrated stereo vision pipeline provides roll, pitch, and yaw measurements while maintaining a good trade-off between precision and computational demand.
 \section{Sensor Fusion and Bayesian Approaches}
 
 Sensor fusion deals with solving the problem of combining heterogeneous and noisy measurements in order to obtain a state estimate that is more accurate than the one provided by individual sensors. In our case, we merge sensors with complementary properties. Stereo vision provides absolute measurements without drift but at a low frequency, while IMU provides angular velocity measurements at high frequency but suffers from drift.
 
-
-\subsection*{Bayesian Foundations}
 In the Bayesian paradigm, the state is described by a probability distribution that evolves over time and is composed of two steps. The prediction step computes the next state based on the dynamic model and the noise statistics, while the update step uses the available measurement through the observation function and the measurement noise statistics. This alternation achieves an optimal trade-off between what is computed and what is effectively measured. 
 \\In our case, the state consists of \textbf{Euler angles} (roll, pitch, yaw), the dynamics are modeled by integrating angular velocities to predict the evolution of the angles using consecutive samples, and the observations come from orientation measurements derived from vision and inertial sensors, which are treated either as model input or as an observation depending on the architecture. It is also necessary to guarantee \textbf{numerical consistency} between prediction and update, managing, for example, the correct periodicity of measurements and possible discontinuities among angles.
 
-\subsection*{Benefits of Fusion}
 Fusion provides several benefits. It reduces drift because vision-based observations remove the accumulation of error caused by inertial integration. The temporal continuity of the IMU keeps the estimate stable due to its high update frequency. \\Fusion also improves robustness, as weighting measurements based on their uncertainty allows discarding unreliable measurements from stereo vision (e.g., when the camera is at a steep angle relative to the ArUco marker or when the marker is too small) or from the IMU.
-
-
-\subsection*{Evaluation}
-The quality of the fusion evaluation is assessed based on three main aspects: \textbf{angular accuracy}, \textbf{temporal stability}, and \textbf{behavior under varying visual quality}.
-
-
-\subsection*{Summary}
-In summary, \textbf{sensor fusion with a Bayesian algorithm} allows combining stereo vision and IMU measurements to obtain the attitude estimate. The IMU provides a continuous and fast estimate, while stereo vision provides an estimate that does not suffer from drift since it is anchored to fixed references.
-
-
+\\The quality of the fusion evaluation is assessed based on three main aspects: \textbf{angular accuracy}, \textbf{temporal stability}, and \textbf{behavior under varying visual quality}.
+\\In summary, \textbf{sensor fusion with a Bayesian algorithm} allows combining stereo vision and IMU measurements to obtain the attitude estimate. The IMU provides a continuous and fast estimate, while stereo vision provides an estimate that does not suffer from drift since it is anchored to fixed references.
 Weighting the measurements according to their uncertainty allows operation even when the quality of observations is not uniform.
 
 \section[Kalman Filters as Bayesian Filters]{Kalman Filters as Bayesian Filters (Linear and Extended)}

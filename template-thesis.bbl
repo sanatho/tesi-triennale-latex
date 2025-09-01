@@ -14,4 +14,10 @@ M.~B. Alatise and G.~P. Hancke, ``Pose estimation of a mobile robot based on
   fusion of imu data and vision data using an extended kalman filter,'' {\em
   Sensors}, vol.~17, no.~10, p.~2164, 2017.
 
+\bibitem{aruco_pose}
+H.~C. Kam, Y.~K. Yu, and K.~H. Wong, ``An improvement on aruco marker for pose
+  tracking using kalman filter,'' in {\em 2018 19th IEEE/ACIS International
+  Conference on Software Engineering, Artificial Intelligence, Networking and
+  Parallel/Distributed Computing (SNPD)}, pp.~65--69, IEEE, 2018.
+
 \end{thebibliography}
