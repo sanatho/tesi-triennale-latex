@@ -1,0 +1,40 @@
+\chapter{Attitude Estimation with IMU}
+\thispagestyle{empty}
+\section{Description of the IMU on the Blue Boat}
+The inertial sensor installed on the \textit{Blue Boat} is the \textbf{ICM-20602}, which integrates a 3-axis accelerometer and a 3-axis gyroscope. This sensor is supplied together with the boat and guarantees compactness, low power consumption, and good stability, features that are essential in a navigation context where space is limited and long-term reliability is fundamental.  
+
+The \textbf{ICM-20602} is capable of providing both acceleration and angular velocity along the three axes. These measurements form the basis for attitude estimation, allowing the reconstruction of the boat’s movements, in particular \textit{roll}, \textit{pitch}, and \textit{yaw}. An important aspect is the low noise level of the gyroscope, which ensures stable readings over time and thus avoids unwanted fluctuations. The accelerometer, on the other hand, provides a direct measurement of the inclination with respect to the gravitational field, which is particularly useful in static or quasi-static conditions.  
+
+The integration of the sensor takes place within the onboard system, by using the REST APIs provided by the \textit{mavlink2rest} service, already installed in the \textit{BlueOS} operating system. Thanks to this approach, it is possible to access inertial data in a simplified way, without the need to directly implement the MAVLink protocol, while preserving consistency with the rest of the onboard pipeline.  
+
+Overall, the \textbf{ICM-20602} represents a suitable choice for our application. It provides accurate measurements, constitutes a good compromise between cost and quality, and lies at the core of the pipeline for computing the attitude of the \textit{Blue Boat}.  
+
+\section{Mathematical Model of the IMU}
+
+The mathematical model of the Inertial Measurement Unit (IMU) is a fundamental step for transforming raw sensor readings into reliable estimates of the boat’s attitude. The ICM-20602, like most modern IMUs, provides two main sources of measurement: the \textbf{accelerometer} and the \textbf{gyroscope}. Each sensor can be described through equations that relate the measured quantity to the actual motion of the body.
+
+The \textbf{accelerometer} measures the specific force acting on the sensor, which in \textit{static or quasi-static conditions} is mainly composed of gravitational acceleration. The ideal output of an accelerometer corresponds to the projection of the gravity vector onto the sensor’s reference frame. In \textit{dynamic conditions}, however, the situation is different, since the readings include both gravity and the linear accelerations due to the vessel’s motion, which makes the estimation of attitude more complex. Moreover, all measurements are affected by noise and bias, which must be properly modeled.
+
+The \textbf{gyroscope} measures the angular velocity of the body along the three axes. By integrating these measured velocities, it is possible to estimate the orientation of the boat. The limitation of this process is that the integration is affected by \textit{drift}, which accumulates over time and generates errors in the long run. For this reason, gyroscope-based measurements are reliable only in the short term and must be combined with those of the accelerometer in order to achieve more accurate long-term estimates.
+
+The mathematical model of the IMU therefore combines two sources: the \textbf{accelerometer}, which provides an absolute reference linked to gravity, and the \textbf{gyroscope}, which precisely describes the vessel’s short-term dynamics. The integration of these measurements forms the basis of \textbf{sensor fusion} algorithms, whose objective is the estimation of roll, pitch, and yaw, while minimizing the effect of drift.
+
+\section{Attitude Estimation Based Solely on IMU}
+
+The estimation of the boat's attitude based solely on the IMU is a direct and widely used approach for the real-time determination of roll, yaw, and pitch. In our project, the IMU orientation is acquired through HTTP GET requests sent to the base station, which exposes an endpoint containing the \texttt{ATTITUDE} values, corresponding to the channel defined in the MAVLink protocol, and returning them in JSON format. The requests are issued at a frequency of 10~Hz, ensuring that data acquisition is aligned with data production and reducing the probability of duplications or losses. At each request, roll, pitch, and yaw are extracted in radians and, for simplicity, converted into degrees. In addition, timestamps, measurement IDs, and angular velocities on the three axes are also collected.
+\\The main advantages of using only the IMU readings lie in the \textbf{simplicity} of the method: it does not require calibration or synchronization with other systems, and it can be implemented easily, enabling rapid testing. From an operational perspective, the frequency of 10~Hz provides a good compromise between responsiveness and computational load, proving effective even in demanding scenarios. \\However, the limitations of IMU-based estimation remain, particularly the drift caused by gyroscope bias, which leads to a loss of accuracy in yaw estimation, as well as sensitivity to vibrations. Internal filtering algorithms in the IMU mitigate this issue by using the accelerometer to constrain roll and pitch with respect to gravity, but the yaw problem cannot be solved without absolute references.
+\\Within the project, IMU reading is essential for subsequent comparison and integration with the data fusion system. Regular acquisition enables a robust dataset to be built, suitable for testing in complex scenarios and for temporal evaluations. In conclusion, attitude estimation based exclusively on the IMU, although \textbf{fast} and \textit{straightforward}, does not provide reliable results in dynamic conditions, as in the long term it tends to lose accuracy.
+
+\section{Typical Errors in Inertial Measurements}
+
+Inertial Measurement Units (IMUs) are highly useful instruments for estimating the \textit{attitude} and movements of a body, but like all sensors, they are subject to various types of \textbf{noise} that affect their measurements. Understanding and modeling these errors is fundamental for designing reliable \textit{sensor fusion filters}.
+
+The first type of error is \textbf{bias}, a constant deviation present in the readings, typically more significant in gyroscopes. This phenomenon leads to progressive drift when the angular velocities are integrated to reconstruct the orientation. Even a small bias causes increasing errors over time.
+
+A second factor is \textbf{noise}, which is random and superimposed on the measurement. Noise makes all readings less reliable and can sometimes introduce undesired oscillations, especially in the accelerometer. To extract useful information with minimal noise, \textit{filtering techniques} are usually applied.
+
+Another problem is the sensitivity to \textbf{shocks and vibrations}, which occurs in contexts such as navigation. In these conditions, the gyroscope also records \textit{spurious linear accelerations} (not due to actual motion) in addition to those caused by gravity, complicating the separation between actual motion and true attitude.
+
+Finally, it is necessary to consider the sensor’s \textbf{nonlinearity} and thermal variations, which may alter measurement stability. Some modern IMUs integrate hardware or software compensation to better manage this issue.
+
+In summary, the main problems are \textbf{bias, noise, vibrations, and nonlinearity}, which limit the reliability of the IMU. For this reason, \textit{fusion with computer vision data} is a necessary step for designing a robust attitude estimation system.

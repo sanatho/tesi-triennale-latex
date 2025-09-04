@@ -1,16 +1,16 @@
 # Fdb version 4
-["bibtex template-thesis"] 1756736671.081 "template-thesis.aux" "template-thesis.bbl" "template-thesis" 1756736673.29171 0
+["bibtex template-thesis"] 1756915541.31032 "template-thesis.aux" "template-thesis.bbl" "template-thesis" 1756994999.39066 0
   "./template-thesis.bib" 1756717956 1269 cf5ab4ebce612696e57f62c81cf7b8e0 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "sections/capitolo_1.aux" 1756736672 2601 a625c53c0d4dcbc41b6bdb1b10c0c1e6 "pdflatex"
-  "sections/capitolo_2.aux" 1756736672 2181 3aacb87c20a1d0189ae9b9548fe29d6c "pdflatex"
-  "sections/capitolo_3.aux" 1756736672 693 784faa61970030346dba8438b5ae6a2a "pdflatex"
-  "template-thesis.aux" 1756736672 1265 f10fd099e409437eb06d7484208cf697 "pdflatex"
+  "sections/capitolo_1.aux" 1756994998 2601 a625c53c0d4dcbc41b6bdb1b10c0c1e6 "pdflatex"
+  "sections/capitolo_2.aux" 1756994998 2181 3aacb87c20a1d0189ae9b9548fe29d6c "pdflatex"
+  "sections/capitolo_3.aux" 1756994998 1449 aea11ea2f09809e8fd374b6659d66ee7 "pdflatex"
+  "template-thesis.aux" 1756994998 1265 5b287d636a2d32c6520e32c8224c2ffd "pdflatex"
   (generated)
   "template-thesis.bbl"
   "template-thesis.blg"
   (rewritten before read)
-["pdflatex"] 1756736671.30299 "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" "template-thesis.pdf" "template-thesis" 1756736673.2928 0
+["pdflatex"] 1756994996.43006 "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" "template-thesis.pdf" "template-thesis" 1756994999.39158 0
   "C:/Users/ThomasPC/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1755768055 81888 770f3d4559840b9e9d8f989d2d293e5e ""
   "C:/Users/ThomasPC/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1755701851 24226462 33736fb5fa67ddca69c2460f2575d564 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -129,7 +129,7 @@
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/ThomasPC/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" 1756719550 7670 6c8b588350ba4231bcfb9178912e7499 ""
+  "c:/Users/ThomasPC/Desktop/tesi/template-thesis.tex" 1756994994 7670 dd19017ce8160a325c789e0e7e143228 ""
   "images/Translations.png" 1756736539 20871 e391d12f19099e88900be3a3285a1765 ""
   "images/calib.png" 1756670059 457984 c75dbd74987d341f0d2bae665682e540 ""
   "images/euler_angles.png" 1755853581 21498 21e63a9554a2dc6840076e8e020778e7 ""
@@ -138,17 +138,17 @@
   "images/roll_pitch_yaw.png" 1756670133 438562 1b572460a95791c7d7c03dc1b5493a99 ""
   "images/unipd-bn.png" 1755529823 143818 b7f491b76a537c05ae4d3b99b1ed7684 ""
   "images/unipd-light.png" 1755529823 208269 7efcbb7e78648f78435ca97437ba90b7 ""
-  "sections/capitolo_1.aux" 1756736672 2601 a625c53c0d4dcbc41b6bdb1b10c0c1e6 "pdflatex"
+  "sections/capitolo_1.aux" 1756994998 2601 a625c53c0d4dcbc41b6bdb1b10c0c1e6 "pdflatex"
   "sections/capitolo_1.tex" 1756736668 16692 afa64e62831c39e57973c6e9f2a68bad ""
-  "sections/capitolo_2.aux" 1756736672 2181 3aacb87c20a1d0189ae9b9548fe29d6c "pdflatex"
+  "sections/capitolo_2.aux" 1756994998 2181 3aacb87c20a1d0189ae9b9548fe29d6c "pdflatex"
   "sections/capitolo_2.tex" 1756718813 12092 d73bc8d7342ff5596a809d4f781b92ea ""
-  "sections/capitolo_3.aux" 1756736672 693 784faa61970030346dba8438b5ae6a2a "pdflatex"
-  "sections/capitolo_3.tex" 1756719475 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "template-thesis.aux" 1756736672 1265 f10fd099e409437eb06d7484208cf697 "pdflatex"
-  "template-thesis.bbl" 1756736671 917 4497347c2cfb8caf716cad2bf2aadf96 "bibtex template-thesis"
-  "template-thesis.out" 1756736672 3525 18c4e94756124ec4aca633bd337fa894 "pdflatex"
-  "template-thesis.tex" 1756719550 7670 6c8b588350ba4231bcfb9178912e7499 ""
-  "template-thesis.toc" 1756736672 1524 e7df061f3c00d3d6572e04597086a582 "pdflatex"
+  "sections/capitolo_3.aux" 1756994998 1449 aea11ea2f09809e8fd374b6659d66ee7 "pdflatex"
+  "sections/capitolo_3.tex" 1756915572 7848 0efc51283923d32af2fd736e1b171d7e ""
+  "template-thesis.aux" 1756994998 1265 5b287d636a2d32c6520e32c8224c2ffd "pdflatex"
+  "template-thesis.bbl" 1756915541 917 4497347c2cfb8caf716cad2bf2aadf96 "bibtex template-thesis"
+  "template-thesis.out" 1756994998 4728 fbdc3e05ec903ee33bf2db67b3520f9f "pdflatex"
+  "template-thesis.tex" 1756994994 7670 dd19017ce8160a325c789e0e7e143228 ""
+  "template-thesis.toc" 1756994998 1999 5c0ce5bbf0e4b4684ae635b29dbe32e1 "pdflatex"
   (generated)
   "sections/capitolo_1.aux"
   "sections/capitolo_2.aux"

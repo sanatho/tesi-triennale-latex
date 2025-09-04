@@ -14,5 +14,10 @@
 \contentsline {section}{\numberline {2.3}Detection of ArUco markers}{18}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Pose Estimation Algorithms}{20}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Limitations and Critical Issues}{21}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Sub-section title}{24}{subsection.2.5.1}%
-\contentsline {chapter}{Bibliografia}{27}{chapter*.3}%
+\contentsline {chapter}{\numberline {3}Attitude Estimation with IMU}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Description of the IMU on the Blue Boat}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Mathematical Model of the IMU}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Attitude Estimation Based Solely on IMU}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Typical Errors in Inertial Measurements}{29}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Sub-section title}{31}{subsection.3.4.1}%
+\contentsline {chapter}{Bibliografia}{33}{chapter*.3}%
