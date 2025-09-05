@@ -1,0 +1,63 @@
+\chapter[Sensor Fusion with EKF]{Sensor Fusion with Extended Kalman Filter}
+\section[Recall on the Functioning of the EKF]{Recall on the Functioning of the Extended Kalman Filter}
+
+The  \textbf{Extended Kalman Filter (EKF)} is an algorithm that, through recursive estimation, allows combining multiple pieces of information coming from different sensors, with the goal of obtaining a more accurate and less noisy estimate of the system state. The main difference with the classical Kalman Filter (KF) consists in the ability to handle nonlinear systems, where the equations describing the system dynamics cannot be expressed in purely linear form.
+
+The functioning is guaranteed by two distinct phases: \textit{prediction} and \textit{update}.  
+
+During the prediction, using the previous state, one seeks to obtain an estimate of the current state and its associated uncertainty. To do this, the previous state is propagated over time using the available inputs. Mathematically, this can be expressed as:
+\begin{equation}
+X_k^- = f(X_{k-1})
+\end{equation}
+
+Concurrently, the covariance $P$, which represents the uncertainty of the estimate, is updated. Since the state is nonlinear, it is linearized through the calculation of the Jacobian matrix with respect to the state. For this purpose, the Jacobian matrix $F$, which is the linearization of the model, and the matrix $Q$, which represents the uncertainty introduced by the process (errors or noise from motion sensors), are used. The covariance update is expressed as:
+\begin{equation}
+P_k^- = F_k P_{k-1} F_k^\top + Q_k
+\end{equation}
+
+When a measurement arrives, the update is performed. The measurement is linked to the state through the nonlinear function $h(x)$. The correction of the estimate depends on $K$, which is the Kalman gain that balances the trust between the model and the measurement. The state update equation is:
+\begin{equation}
+X_k = X_k^- + K_k \big( z_k - h(X_k^-) \big)
+\end{equation}
+
+By proceeding in this way, the EKF returns an estimate of the state that combines the strengths of both sources: the model provides continuity and stability, while the measurements reduce the error through correction. For this reason, the EKF represents a versatile tool for sensor fusion.
+
+\section{Definition of the Boat State}
+
+To correctly implement the \textbf{EKF}, it is necessary to define the \textbf{system state}, that is, the set of variables describing the dynamics of the boat and that need to be estimated through \textit{sensor fusion}. In our case, the focus is on the boat’s \textbf{attitude and orientation}, since these parameters are essential for both \textit{autonomous navigation} and \textit{control}.  
+
+The state is composed of \textbf{roll, pitch, and yaw}. Roll, which describes rotation around the longitudinal axis, is important in situations with waves or during sharp maneuvers that could compromise lateral stability. Pitch represents rotation around the transverse axis and provides information on the movement of the bow and stern relative to the horizontal plane. Yaw describes rotation around the vertical axis and thus the change in direction, being essential for maintaining the course.  
+
+In addition to these instantaneous values, other information is associated to describe their evolution over time. The system state does not only represent the current configuration, but provides a compact and dynamic description of the boat’s attitude. Formally, it can be represented by the vector:  
+
+\[
+x = 
+\begin{bmatrix}
+\phi & \theta & \psi
+\end{bmatrix}^{\mathsf{T}}
+\]
+where \(\phi\), \(\theta\), and \(\psi\) represent roll, pitch, and yaw, respectively.  
+
+This formulation allows the \textbf{EKF} to combine information from different sensors: \textbf{computer vision}, which provides angle measurements but is affected by noise, and the \textbf{IMU}, which provides more precise measurements but may suffer from drift. The fusion of these two sources through the filter allows the limitations of each sensor to be compensated, resulting in a more robust and reliable estimate of the boat’s attitude.
+
+\section{Dynamic Transition Model}
+
+The dynamic transition model describes how the state of the boat evolves over time, based on sensor measurements. In particular, starting from the instantaneous values at time step $k-1$, the goal is to estimate how the system evolves at the following instant $k$. In our case, the state is described by the Euler angles $(\phi, \theta, \psi)$ — namely roll, pitch, and yaw — and possible biases associated with the sensor measurements.  
+
+An important aspect concerns how the IMU provides the data. The inertial sensor not only delivers angular velocities and accelerations, which would normally need to be integrated, but also directly provides the absolute values of the angles, already computed internally through sensor fusion routines. This simplifies the model, since the values can be updated directly using the provided measurements.  
+
+The transition model takes on a relatively simple form: the angle at instant $k$ is estimated as the angle at the previous step $k-1$, plus a noise term that accounts for sensor uncertainty. Formally, it can be expressed as:  
+
+\[
+\mathbf{x}_k = \mathbf{x}_{k-1} + \mathbf{w}_k
+\]
+
+where $\mathbf{x}_k = [\phi, \theta, \psi]^\top$ and $\mathbf{w}_k$ is a Gaussian noise vector with zero mean and covariance $\mathbf{Q}$.  
+
+The biases are considered constant over time, but subject to slow and random variations modeled as:  
+
+\[
+\mathbf{b}_k = \mathbf{b}_{k-1} + \eta_k, \quad \eta_k \sim \mathcal{N}(0, Q_b)
+\]
+
+This formulation allows the EKF to account both for the relative stability of IMU measurements and for uncertainties due to possible drift, ensuring a coherent temporal evolution of the estimated state.  

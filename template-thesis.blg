@@ -7,6 +7,8 @@ Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: sections/capitolo_2.aux
 Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: sections/capitolo_3.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: sections/capitolo_4.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
@@ -16,7 +18,7 @@ Warning--empty journal in IMU_Euler
 Warning--empty year in IMU_Euler
 You've used 4 entries,
             1876 wiz_defined-function locations,
-            511 strings with 4349 characters,
+            512 strings with 4372 characters,
 and the built_in function-call counts, 1063 in all, are:
 = -- 101
 > -- 40

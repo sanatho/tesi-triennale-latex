@@ -19,5 +19,9 @@
 \contentsline {section}{\numberline {3.2}Mathematical Model of the IMU}{26}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Attitude Estimation Based Solely on IMU}{27}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Typical Errors in Inertial Measurements}{29}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Sub-section title}{31}{subsection.3.4.1}%
-\contentsline {chapter}{Bibliografia}{33}{chapter*.3}%
+\contentsline {chapter}{\numberline {4}Sensor Fusion with EKF}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Recall on the Functioning of the EKF}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Definition of the Boat State}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dynamic Transition Model}{34}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Sub-section title}{36}{subsection.4.3.1}%
+\contentsline {chapter}{Bibliografia}{39}{chapter*.3}%
